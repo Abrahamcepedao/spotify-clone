@@ -16,7 +16,8 @@
 }
 
 .songRow__info{
-    margin-left: 20px;   
+    margin-left: 20px;  
+    flex: 1; 
 }
 .songRow__info > h1{
     font-size: 16px;
