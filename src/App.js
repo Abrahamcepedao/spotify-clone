@@ -32,13 +32,21 @@ function App() {
           type: "SET_PLAYLISTS",
           playlists: playlists,
         });
+        spotify.getPlaylist(playlists.items[0].id).then(response => {
+          dispatch({
+            type: "SET_PLAYLIST",
+            playlist: response,
+          });
+        });
+        
+        console.log("playlists",playlists.items[0]);
       }); 
-      spotify.getPlaylist('37i9dQZEVXcSgA5lA1ksZ8').then(response => {
+      /* spotify.getPlaylist('37i9dQZEVXcSgA5lA1ksZ8').then(response => {
         dispatch({
           type: "SET_PLAYLIST",
           playlist: response,
         })
-      })
+      }) */
     }
   }, []);
 
