@@ -3,8 +3,10 @@ import Sidebar from './Sidebar';
 import Body from './Body';
 import "./Player.css";
 import Footer from './Footer';
+import { useDataLayerValue } from './DataLayer';
 
 function Player({ spotify }) {
+    const [{song}, dispatch] = useDataLayerValue();
     return (
         <div className="player">
             {/* Sidebar */}
@@ -14,7 +16,7 @@ function Player({ spotify }) {
             </div>
             {/* Body */}
             {/* Footer */}
-            <Footer/>
+            {song && <Footer/>}
         </div>
     )
 }

@@ -8,20 +8,26 @@ import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 import './Footer.css';
 import { Grid, Slider } from '@material-ui/core';
+import { useDataLayerValue } from "./DataLayer";
 
 
 function Footer() {
+    const [{song}, dispatch] = useDataLayerValue();
+    function truncate(str, n) {
+      return str?.length > n ? str.substring(0, n - 1) + "..." : str;
+    }
+
     return (
       <div className="footer">
         <div className="footer__left">
           <img
             className="footer__albumCover"
-            src="https://i.pinimg.com/originals/8d/c7/52/8dc752834195102e4cb630a53221255e.jpg"
+            src={song.album.images[0].url}
             alt=""
           />
           <div className="footer__songInfo">
-            <h4>Song</h4>
-            <p>Artist</p>
+            <h4>{truncate(song.name, 50)}</h4>
+            <p>{truncate(song.artists.map((artist) => artist.name).join(", "), 50)}</p>
           </div>
         </div>
         <div className="footer__center">

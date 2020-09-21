@@ -4,6 +4,7 @@ export const initialState = {
   playlists: [],
   playlist: null,
   playing: false,
+  song: null,
   item: null,
 };
 
@@ -29,6 +30,11 @@ const reducer = (state, action) => {
         return {
           ...state,
           playlist: action.playlist,
+        };
+      case "SET_SONG":
+        return {
+          ...state,
+          song: action.song,
         };
       default:
         return state;

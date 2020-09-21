@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from './Header';
 import SongRow from './SongRow';
 import './Body.css';
@@ -8,11 +8,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 function Body({spotify}) {
-    const [{ playlist, playlists}, dispatch] = useDataLayerValue();
-    const [currentPlaylist, setCurrentPlaylist] = useState();
-    useEffect(() => {
-        console.log(playlist);
-    }, [playlist]);
+    const [{ playlist }, dispatch] = useDataLayerValue();
 
     return (
       <div className="body">
@@ -20,9 +16,10 @@ function Body({spotify}) {
         <div className="body__info">
           <img src={playlist?.images[0].url} alt="" />
           <div className="body__infoText">
-            <strong>PLAYLIST</strong>
+            <p><strong>PLAYLIST</strong></p>
             <h2>{playlist?.name}</h2>
             <p>{playlist?.description}</p>
+            <p><strong>{playlist?.owner.display_name}{" • "}{playlist?.followers.total}{" followers"}{" • "}{playlist?.tracks.total}{" songs"}</strong></p>
           </div>
         </div>
         <div className="body__songs">
@@ -32,7 +29,7 @@ function Body({spotify}) {
             <MoreHorizIcon />
           </div>
           {playlist?.tracks.items.map((item) => (
-            <SongRow track={item.track} />
+            <SongRow track={item.track} key={item.track.id}/>
           ))}
         </div>
       </div>

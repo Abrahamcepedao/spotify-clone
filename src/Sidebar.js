@@ -27,6 +27,7 @@ function Sidebar({spotify}) {
             title={playlist.name}
             playlistData={playlist}
             spotify={spotify}
+            key={playlist.id}
           />
         ))}
       </div>

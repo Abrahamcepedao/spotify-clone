@@ -1,10 +1,19 @@
 import React from 'react';
+import { useDataLayerValue } from './DataLayer';
 import './SongRow.css';
 
 function SongRow({track}) {
-    console.log(track);
+    const [{song}, dispatch] = useDataLayerValue();
+    const handleClick = () => {
+        dispatch({
+            type: "SET_SONG",
+            song: track
+        })
+        console.log(track)
+    }
+
     return (
-      <div className="songRow">
+      <div className="songRow" onClick={() => handleClick()}>
         <img
           className="songRow__album"
           src={track.album.images[0].url}

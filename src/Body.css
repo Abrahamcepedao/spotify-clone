@@ -30,9 +30,15 @@
     font-size: 48px;
     margin-bottom: 10px;
 }
+@media screen and (min-width:992px){
+    .body__infoText > h2{
+        font-size: 70px;
+    }
+}
 
 .body__infoText > p{
     font-size: 14px;
+    margin-bottom: 10px;
 }
  
 .body__songs{
