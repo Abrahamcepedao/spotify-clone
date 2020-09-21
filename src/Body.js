@@ -9,7 +9,9 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 function Body({spotify}) {
     const [{ playlist }, dispatch] = useDataLayerValue();
-
+    function truncate(str, n) {
+    return str?.length > n ? str.substring(0, n - 1) + "..." : str;
+    }
     return (
       <div className="body">
         <Header spotify={spotify} />
@@ -17,8 +19,8 @@ function Body({spotify}) {
           <img src={playlist?.images[0].url} alt="" />
           <div className="body__infoText">
             <p><strong>PLAYLIST</strong></p>
-            <h2>{playlist?.name}</h2>
-            <p>{playlist?.description}</p>
+            <h2>{truncate(playlist?.name, 30)}</h2>
+            <p>{truncate(playlist?.description, 50)}</p>
             <p><strong>{playlist?.owner.display_name}{" • "}{playlist?.followers.total}{" followers"}{" • "}{playlist?.tracks.total}{" songs"}</strong></p>
           </div>
         </div>
