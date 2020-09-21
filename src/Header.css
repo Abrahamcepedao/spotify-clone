@@ -13,7 +13,7 @@
     align-items: center;
     padding: 10px;
     flex: 0.5;
-    min-width: 80px;
+    min-width: 70px;
 }
 .header__left > input{
     border: none;
