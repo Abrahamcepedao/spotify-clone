@@ -43,8 +43,9 @@
     display: flex;
     align-items: center;
 }
-.body__icons > .MuiSvgIcon.root{
-    margin-right: 20px;
+.body__icons > .MuiSvgIcon-root{
+    margin-right: 40px;
+    cursor: pointer;
 }
 
 .body__shuffle{
